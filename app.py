@@ -43,7 +43,7 @@ class AppConfig:
 
 def load_config() -> AppConfig:
     def _get_int(name: str, default: int) -> int:
-        raw = os.getenv(name, "").strip()
+        raw = st.secrets.get(name, "").strip()
         try:
             return int(raw) if raw else default
         except ValueError:
